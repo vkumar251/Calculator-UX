@@ -14,6 +14,9 @@ const xxlScreen = window.matchMedia("(max-width: 1600px)");
 sidebar.className = "d-none";
 sidebarPane.className = "d-none";
 
+// add event to listen for viewport changes
+smScreen.addEventListener("change", changeBannerText);
+
 window.onload = function()
 {
     viewport(smScreen);
@@ -45,16 +48,16 @@ function openSidebar()
     if (window.darkMode === true)
     {
         sidebar.classList.remove("bg-dark");
-        sidebar.classList.add("bg-secondary-subtle");
+        sidebar.classList.add("bg-black");
+        
         for (let i = 0; i < sidebarItems.length; i++)
         {
-            sidebarItems[i].classList.remove("text-light");
-            sidebarItems[i].classList.add("text-dark");
+            sidebarItems[i].classList.add("text-light");
         }
     }
     else
     {
-        sidebar.classList.remove("bg-secondary-subtle");
+        sidebar.classList.remove("bg-black");
         sidebar.classList.add("bg-dark");
         for (let i = 0; i < sidebarItems.length; i++)
         {
@@ -85,6 +88,7 @@ function openSidebar()
 
     animate();
 }
+
 function closeSidebar()
 {
     const sidebar = document.querySelector("#sidebar");
@@ -114,6 +118,25 @@ function closeSidebar()
 
     animate();
 }
+
+function changeBannerText()
+{
+    const heading2 = document.querySelector("#home-banner h2");
+    const heading3 = document.querySelector("#home-banner h3");
+
+    // toggle font size between 3 and 4 when viewport is smScreen
+    if (smScreen.matches)
+    {
+        heading2.classList.replace("fs-3", "fs-4");
+        heading3.classList.replace("fs-3", "fs-4");
+    }
+    else
+    {
+        heading2.classList.replace("fs-4", "fs-3");
+        heading3.classList.replace("fs-4", "fs-3");
+    }
+}
+
 
 // toggle class m-2 when viewport is smScreen
 function viewport(value)
