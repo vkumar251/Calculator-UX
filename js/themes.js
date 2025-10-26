@@ -10,11 +10,12 @@ window.onload = function()
     window.toggleLightMode = toggleLightMode;
     window.toggleThemes = toggleThemes;
 }
-
 export function checkThemes()
 {
     switchBanner();
     switchMenuCards();
+    switchHeadings();
+    switchArithmetics();
 }
 
 // Homepage banner
@@ -31,6 +32,7 @@ function switchBanner()
         {
             // change banner to sunset gradient when dark mode is enabled
             banner.classList.replace("gradient-sunrise", "gradient-sunset");
+
             bannerH1.classList.replace("text-primary", "text-info");
             bannerH1.classList.replace("text-shadow-white", "text-shadow-black");
 
@@ -179,6 +181,194 @@ function switchMenuCards()
 
             var heading = accessCard.querySelector("h3")
             heading.classList.replace("text-blue-dark", "text-blue-light");
+        }
+    }
+}
+
+// Page headings
+function switchHeadings()
+{
+    const arithmeticsH = document.querySelector("#arithmetics-heading");
+
+    // arithmetics
+    if (document.body.contains(arithmeticsH))
+    {
+        const title = arithmeticsH.querySelector("h2");
+        if (window.darkMode)
+        {
+            arithmeticsH.classList.replace("gradient-cherry-light", "gradient-cherry-dark");
+            title.classList.replace("text-orange", "text-yellow");
+        }
+        else
+        {
+            arithmeticsH.classList.replace("gradient-cherry-dark", "gradient-cherry-light");
+            title.classList.replace("text-yellow", "text-orange");
+        }
+    }
+}
+
+// Arithmetics page
+function switchArithmetics()
+{
+    let head = document.head;
+    let page = document.body;
+    let darkMode = window.darkMode;
+    let style = document.querySelector("style");
+
+    const addCard = document.querySelector("#add-card");
+    const subtractCard = document.querySelector("#subtract-card");
+    const multiplyCard = document.querySelector("#multiply-card");
+    const divideCard = document.querySelector("#divide-card");
+
+    // style (for placeholder colour)
+    if (head.contains(document.querySelector("#placeholders")))
+    {
+        try
+        {
+            if (darkMode === true)
+            {
+                style.textContent = `input {color: white;} ::placeholder {color: #c5c5c5;}`;
+            }
+            else
+            {
+                style.textContent = `input {color: black;} ::placeholder {color: #444444;}`;
+            }
+        }
+        catch (e)
+        {
+            console.warn("Matching class attributed identified: Skipping actions");
+        }
+    }
+
+    // add
+    if (page.contains(addCard))
+    {
+        let title = addCard.querySelector("h3");
+        let results = addCard.querySelector("#add-results");
+        let footer = addCard.querySelector(".card-footer");
+
+        try
+        {
+            if (darkMode)
+            {
+                var body = addCard.querySelector(".bg-dark-subtle");
+
+                if (title.classList.contains("text-warning")) {title.classList.replace("text-warning", "text-orange");}
+                if (body.classList.contains("bg-dark-subtle")) {body.classList.replace("bg-dark-subtle", "bg-black");}
+                if (results.classList.contains("text-orange")) {results.classList.replace("text-orange", "text-warning");}
+                if (footer.classList.contains("bg-pink-light")) {footer.classList.replace("bg-pink-light", "bg-pink-dark");}
+            }
+            else
+            {
+                var body = addCard.querySelector(".bg-black");
+
+                if (title.classList.contains("text-orange")) {title.classList.replace("text-orange", "text-warning");}
+                if (body.classList.contains("bg-black")) {body.classList.replace("bg-black", "bg-dark-subtle");}
+                if (results.classList.contains("text-warning")) {results.classList.replace("text-warning", "text-orange");}
+                if (footer.classList.contains("bg-pink-dark")) {footer.classList.replace("bg-pink-dark", "bg-pink-light");}
+            }
+        }
+        catch (e)
+        {
+        }
+    }
+
+    // subtract
+    if (page.contains(subtractCard))
+    {
+        let title = subtractCard.querySelector("h3");
+        let results = subtractCard.querySelector("#subtract-results");
+        let footer = subtractCard.querySelector(".card-footer");
+
+        try
+        {
+            if (darkMode)
+            {
+                var body = subtractCard.querySelector(".bg-dark-subtle");
+
+                if (title.classList.contains("text-warning")) {title.classList.replace("text-warning", "text-orange");}
+                if (body.classList.contains("bg-dark-subtle")) {body.classList.replace("bg-dark-subtle", "bg-black");}
+                if (results.classList.contains("text-orange")) {results.classList.replace("text-orange", "text-warning");}
+                if (footer.classList.contains("bg-pink-light")) {footer.classList.replace("bg-pink-light", "bg-pink-dark");}
+            }
+            else
+            {
+                var body = subtractCard.querySelector(".bg-black");
+
+                if (title.classList.contains("text-orange")) {title.classList.replace("text-orange", "text-warning");}
+                if (body.classList.contains("bg-black")) {body.classList.replace("bg-black", "bg-dark-subtle");}
+                if (results.classList.contains("text-warning")) {results.classList.replace("text-warning", "text-orange");}
+                if (footer.classList.contains("bg-pink-dark")) {footer.classList.replace("bg-pink-dark", "bg-pink-light");}
+            }
+        }
+        catch (e)
+        {
+        }
+    }
+
+    // multiply
+    if (page.contains(multiplyCard))
+    {
+        let title = multiplyCard.querySelector("h3");
+        let results = multiplyCard.querySelector("#multiply-results");
+        let footer = multiplyCard.querySelector(".card-footer");
+
+        try 
+        {
+            if (darkMode)
+            {
+                var body = multiplyCard.querySelector(".bg-dark-subtle");
+
+                if (title.classList.contains("text-warning")) {title.classList.replace("text-warning", "text-orange");}
+                if (body.classList.contains("bg-dark-subtle")) {body.classList.replace("bg-dark-subtle", "bg-black");}
+                if (results.classList.contains("text-orange")) {results.classList.replace("text-orange", "text-warning");}
+                if (footer.classList.contains("bg-pink-light")) {footer.classList.replace("bg-pink-light", "bg-pink-dark");}
+            }
+            else
+            {
+                var body = multiplyCard.querySelector(".bg-black");
+
+                if (title.classList.contains("text-orange")) {title.classList.replace("text-orange", "text-warning");}
+                if (body.classList.contains("bg-black")) {body.classList.replace("bg-black", "bg-dark-subtle");}
+                if (results.classList.contains("text-warning")) {results.classList.replace("text-warning", "text-orange");}
+                if (footer.classList.contains("bg-pink-dark")) {footer.classList.replace("bg-pink-dark", "bg-pink-light");}
+            }
+        }
+        catch (e) 
+        {
+        }
+    }
+
+    // divide
+    if (page.contains(divideCard))
+    {
+        let title = divideCard.querySelector("h3");
+        let results = divideCard.querySelector("#divide-results");
+        let footer = divideCard.querySelector(".card-footer");
+
+        try 
+        {
+            if (darkMode)
+            {
+                var body = divideCard.querySelector(".bg-dark-subtle");
+
+                if (title.classList.contains("text-warning")) {title.classList.replace("text-warning", "text-orange");}
+                if (body.classList.contains("bg-dark-subtle")) {body.classList.replace("bg-dark-subtle", "bg-black");}
+                if (results.classList.contains("text-orange")) {results.classList.replace("text-orange", "text-warning");}
+                if (footer.classList.contains("bg-pink-light")) {footer.classList.replace("bg-pink-light", "bg-pink-dark");}
+            }
+            else
+            {
+                var body = divideCard.querySelector(".bg-black");
+
+                if (title.classList.contains("text-orange")) {title.classList.replace("text-orange", "text-warning");}
+                if (body.classList.contains("bg-black")) {body.classList.replace("bg-black", "bg-dark-subtle");}
+                if (results.classList.contains("text-warning")) {results.classList.replace("text-warning", "text-orange");}
+                if (footer.classList.contains("bg-pink-dark")) {footer.classList.replace("bg-pink-dark", "bg-pink-light");}
+            }
+        }
+        catch (e) 
+        {
         }
     }
 }

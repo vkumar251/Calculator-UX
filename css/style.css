@@ -80,10 +80,23 @@ section#sidebar-pane {
     justify-content: center;
     align-items: center;
 }
+.input-box-light,
+.input-box-dark,
+.results-box-light,
+.results-box-dark {
+    font-size: 20px;
+    padding: 5px 10px;
+}
+.input-box-light {border: 1px solid black;}
+.input-box-dark {border: 1px solid white;}
+.results-box-light {border: 1px ridge black;}
+.results-box-dark {border: 1px ridge white;}
 
 /* gradients */
 .gradient-sunrise {background: linear-gradient(to top, #7bcaff, #e8afff, #ffae00);}
 .gradient-sunset {background: linear-gradient(to top, #00365a, #4d0042, #ff9900);}
+.gradient-cherry-light {background: linear-gradient(to bottom, #daffb9, #ffa5c6);}
+.gradient-cherry-dark {background: linear-gradient(to bottom, #2c5e00, #5c0022);}
 
 /* text shadow */
 .text-shadow-black {text-shadow: 5px 5px 5px #000000;}
@@ -106,6 +119,8 @@ section#sidebar-pane {
 /* contrast background colours */
 .bg-purple-dark {background-color: #7045c0;}
 .bg-purple-light {background-color: #9986bd;}
+.bg-pink-dark {background-color: #460064;}
+.bg-pink-light {background-color: #f9ebff;}
 
 /* hover colours */
 .text-green-dark-hover {color: #007000;}
@@ -128,6 +143,7 @@ section#sidebar-pane {
 .mp-reset {margin: 0; padding: 0;}
 .f-50 {font-size: 50px;}
 .f-75 {font-size: 75px;}
+.h-70 {height: 70px;}
 
 /* VIEWPORTS */
 @media screen and (max-width: 575px) /* x-small */
@@ -135,30 +151,45 @@ section#sidebar-pane {
     /* hide navigation items */
     .nav-items {display: none;}
 
-    main #menu-grid #arithmetics-card {margin: 20px 0;}
-    main #menu-grid #shapes-card {margin: 20px 0;}
-    main #menu-grid #bmi-card {margin: 20px 0;}
+    main #menu-grid #arithmetics-card,
+    main #menu-grid #shapes-card,
+    main #menu-grid #bmi-card,
     main #menu-grid #access-card {margin: 20px 0;}
+
+    main #arithmetics-grid #add-card,
+    main #arithmetics-grid #subtract-card,
+    main #arithmetics-grid #multiply-card,
+    main #arithmetics-grid #divide-card {margin: 20px 0;}
 }
 
 @media screen and (min-width: 576px) /* small */
 {
     .nav-items {display: none;}
 
-    main #menu-grid #arithmetics-card {margin: 20px 0;}
-    main #menu-grid #shapes-card {margin: 20px 0;}
-    main #menu-grid #bmi-card {margin: 20px 0;}
+    main #menu-grid #arithmetics-card,
+    main #menu-grid #shapes-card,
+    main #menu-grid #bmi-card,
     main #menu-grid #access-card {margin: 20px 0;}
+
+    main #arithmetics-grid #add-card,
+    main #arithmetics-grid #subtract-card,
+    main #arithmetics-grid #multiply-card,
+    main #arithmetics-grid #divide-card {margin: 20px 0;}
 }
 
 @media screen and (min-width: 768px) /* medium */
 {
     .nav-items {display: none;}
 
-    main #menu-grid #arithmetics-card {margin: 20px 0;}
-    main #menu-grid #shapes-card {margin: 20px 0;}
-    main #menu-grid #bmi-card {margin: 20px 0;}
+    main #menu-grid #arithmetics-card,
+    main #menu-grid #shapes-card,
+    main #menu-grid #bmi-card,
     main #menu-grid #access-card {margin: 20px 0;}
+
+    main #arithmetics-grid #add-card,
+    main #arithmetics-grid #subtract-card,
+    main #arithmetics-grid #multiply-card,
+    main #arithmetics-grid #divide-card {margin: 20px 0;}
 }
 
 @media screen and (min-width: 992px) /* large */
@@ -189,10 +220,29 @@ section#sidebar-pane {
     overflow-y: auto;
     }
 
-    main #menu-grid #arithmetics-card {margin: 0;}
-    main #menu-grid #shapes-card {margin: 0;}
-    main #menu-grid #bmi-card {margin: 0;}
+    main #menu-grid #arithmetics-card,
+    main #menu-grid #shapes-card,
+    main #menu-grid #bmi-card,
     main #menu-grid #access-card {margin: 0;}
+
+    /* arithmetics grid */
+    main #arithmetics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        justify-items: center;
+    }
+    main #arithmetics-grid .card {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        flex-direction: column;
+    }
+
+    main #arithmetics-grid #add-card,
+    main #arithmetics-grid #subtract-card,
+    main #arithmetics-grid #multiply-card,
+    main #arithmetics-grid #divide-card {margin: 0;}
 }
 
 @media screen and (min-width: 1200px) /* x-large */

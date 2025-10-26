@@ -14,8 +14,20 @@ const xxlScreen = window.matchMedia("(max-width: 1600px)");
 sidebar.className = "d-none";
 sidebarPane.className = "d-none";
 
-// add event to listen for viewport changes
+// event to listen for viewport changes
 smScreen.addEventListener("change", changeBannerText);
+
+// event to execute upon DOM load
+document.addEventListener("DOMContentLoaded", function()
+{
+    logoAnimation();
+
+    // repeat animation every 2.5 seconds after first execution
+    setInterval(() => 
+    {
+        logoAnimation();
+    }, 2500);
+});
 
 window.onload = function()
 {
@@ -135,6 +147,41 @@ function changeBannerText()
         heading2.classList.replace("fs-4", "fs-3");
         heading3.classList.replace("fs-4", "fs-3");
     }
+}
+
+function logoAnimation()
+{
+    const logo = document.querySelector("#logo");
+    const logoLetters = logo.querySelectorAll(".text-warning");
+    
+    let x = 0; let y = 1; let z = 0;
+
+    // create 50ms interval for every 2 letters
+    const interval = setInterval(() => 
+    {
+        logoLetters[x].classList.replace("text-warning", "text-yellow"); x++;
+        logoLetters[y].classList.replace("text-warning", "text-yellow"); y++;
+
+        // end loop after all letters are animated
+        if (y >= logoLetters.length)
+        {
+            clearInterval(interval);
+        }
+    }, 50);
+
+    // reset after first animation is completed
+    setTimeout(function() 
+    {
+        const interval = setInterval(() => 
+        {
+            logoLetters[z].classList.replace("text-yellow", "text-warning"); z++;
+
+            if (z >= logoLetters.length)
+            {
+                clearInterval(interval);
+            }
+        }, 50);
+    }, 50);
 }
 
 

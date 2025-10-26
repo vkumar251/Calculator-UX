@@ -9,13 +9,20 @@
         <link rel="stylesheet" href="css/animations.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <style id="placeholders">
+            input {color: black;} ::placeholder {color: #444444;}
+        </style>
     </head>
     <body class="sansation-regular">
         <!-- navigation -->
         <header id="header" class="bg-dark text-light py-2">
             <nav class="d-flex justify-content-around align-items-center">
-                <div id="logo" class="fs-3 fw-bold text-warning pointer">
-                    <i class="fa-solid fa-calculator"></i> Calculator
+                <div id="logo" class="fs-3 fw-bold pointer">
+                    <span class="text-warning"><i class="fa-solid fa-calculator"></i></span>
+                    <span class="text-warning">C</span><span class="text-warning">a</span><span class="text-warning">l</span><!--
+                 --><span class="text-warning">c</span><span class="text-warning">u</span><span class="text-warning">l</span><!--
+                 --><span class="text-warning">a</span><span class="text-warning">t</span><span class="text-warning">o</span><!--
+                 --><span class="text-warning">r</span>
                 </div>
                 <div class="nav-items-container d-flex fs-5">
                     <!-- nav items -->
@@ -62,7 +69,70 @@
         
         <!-- main content -->
         <main id="main" class="bg-light text-dark">
-            Text
+            <section id="arithmetics-heading" class="gradient-cherry-light py-4 mb-4">
+                <h2 class="text-center row text-uppercase justify-content-center display-6 fw-bold mp-reset text-orange">Arithmetic Calculator</h2>
+                <h3 class="text-center row justify-content-center mp-reset pt-2">Calculate basic arithmetic expressions.</h3>
+            </section>
+            <section id="arithmetics-grid" class="container">
+                <!-- add -->
+                <div id="add-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-warning fw-bold text-uppercase">Add</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="add-1" type="number" placeholder="First Number" class="input-box-light bg-light">
+                        <input id="add-2" type="number" placeholder="Second Number" class="input-box-light bg-light">
+                        <button id="add-numbers" class="btn btn-info" onClick="addNumbers()">Calculate</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="add-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- subtract -->
+                <div id="subtract-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-warning fw-bold text-uppercase">Subtract</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="subtract-1" type="number" placeholder="First Number" class="input-box-light bg-light">
+                        <input id="subtract-2" type="number" placeholder="Second Number" class="input-box-light bg-light">
+                        <button id="subtract-numbers" class="btn btn-info" onClick="subtractNumbers()">Calculate</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="subtract-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- multiply -->
+                <div id="multiply-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-warning fw-bold text-uppercase">Multiply</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="multiply-1" type="number" placeholder="First Number" class="input-box-light bg-light">
+                        <input id="multiply-2" type="number" placeholder="Second Number" class="input-box-light bg-light">
+                        <button id="multiply-numbers" class="btn btn-info" onClick="multiplyNumbers()">Calculate</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="multiply-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- divide -->
+                <div id="divide-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-warning fw-bold text-uppercase">Divide</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="divide-1" type="number" placeholder="First Number" class="input-box-light bg-light">
+                        <input id="divide-2" type="number" placeholder="Second Number" class="input-box-light bg-light">
+                        <button id="divide-numbers" class="btn btn-info" onClick="divideNumbers()">Calculate</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="divide-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+            </section>
+            <!-- extra space (to be deleted) -->
+            <section style="height: 20px;"></section>
         </main>
 
         <!-- footer -->
@@ -77,6 +147,7 @@
         
         <!-- import scripts -->
         <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+        <script src="js/calculator.js"></script>
         <script src="js/queries.js"></script>
         <script type="module" src="js/access.js"></script>
         <script type="module" src="js/themes.js"></script>
