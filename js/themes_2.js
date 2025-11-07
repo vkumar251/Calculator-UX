@@ -410,19 +410,18 @@ export function switchBMI()
         let body = infoCard.querySelector(".bg-dark-subtle, .bg-black");
         let div = infoCard.querySelector("#formula-div");
 
-        // chart
-        var row1 = infoCard.querySelector("#bmi-row-1").classList;
-        var row2 = infoCard.querySelector("#bmi-row-2").classList;
-        var row3 = infoCard.querySelector("#bmi-row-3").classList;
-        var row4 = infoCard.querySelector("#bmi-row-4").classList;
-        var row5 = infoCard.querySelector("#bmi-row-5").classList;
-        var row6 = infoCard.querySelector("#bmi-row-6").classList;
-        var row7 = infoCard.querySelector("#bmi-row-7").classList;
-        var row8 = infoCard.querySelector("#bmi-row-8").classList;
-
-        // chart - headings
-        var heading1 = infoCard.querySelector("#bmi-heading-1").classList;
-        var heading2 = infoCard.querySelector("#bmi-heading-2").classList;
+        // arrays (for chart columns)
+        const chartHeadings = 
+        [
+            infoCard.querySelector("#bmi-heading-1").classList, infoCard.querySelector("#bmi-heading-2").classList,
+        ];
+        const chartRows = 
+        [
+            infoCard.querySelector("#bmi-row-1").classList, infoCard.querySelector("#bmi-row-2").classList,
+            infoCard.querySelector("#bmi-row-3").classList, infoCard.querySelector("#bmi-row-4").classList,
+            infoCard.querySelector("#bmi-row-5").classList, infoCard.querySelector("#bmi-row-6").classList,
+            infoCard.querySelector("#bmi-row-7").classList, infoCard.querySelector("#bmi-row-8").classList,
+        ];
 
         try
         {
@@ -436,18 +435,14 @@ export function switchBMI()
                 if (bodyC.contains("bg-dark-subtle")) {bodyC.replace("bg-dark-subtle", "bg-black");}
                 if (divC.contains("bg-primary-subtle")) {divC.replace("bg-primary-subtle", "bg-primary");}
 
-                // chart columns
-                if (heading1.contains("bg-success")) {heading1.replace("bg-success", "bg-success-subtle");}
-                if (heading2.contains("bg-success")) {heading2.replace("bg-success", "bg-success-subtle");}
-
-                if (row1.contains("bg-success-subtle")) {row1.replace("bg-success-subtle", "bg-success");}
-                if (row2.contains("bg-success-subtle")) {row2.replace("bg-success-subtle", "bg-success");}
-                if (row3.contains("bg-success-subtle")) {row3.replace("bg-success-subtle", "bg-success");}
-                if (row4.contains("bg-success-subtle")) {row4.replace("bg-success-subtle", "bg-success");}
-                if (row5.contains("bg-success-subtle")) {row5.replace("bg-success-subtle", "bg-success");}
-                if (row6.contains("bg-success-subtle")) {row6.replace("bg-success-subtle", "bg-success");}
-                if (row7.contains("bg-success-subtle")) {row7.replace("bg-success-subtle", "bg-success");}
-                if (row8.contains("bg-success-subtle")) {row8.replace("bg-success-subtle", "bg-success");}
+                for (const chartHeading of chartHeadings)
+                {
+                    chartHeading.replace("bg-success", "bg-success-subtle");
+                }
+                for (const chartRow of chartRows)
+                {
+                    chartRow.replace("bg-success-subtle", "bg-success");
+                }
             }
             else
             {
@@ -455,18 +450,14 @@ export function switchBMI()
                 if (bodyC.contains("bg-black")) {bodyC.replace("bg-black", "bg-dark-subtle");}
                 if (divC.contains("bg-primary")) {divC.replace("bg-primary", "bg-primary-subtle");}
 
-                // chart columns
-                if (heading1.contains("bg-success-subtle")) {heading1.replace("bg-success-subtle", "bg-success");}
-                if (heading2.contains("bg-success-subtle")) {heading2.replace("bg-success-subtle", "bg-success");}
-
-                if (row1.contains("bg-success")) {row1.replace("bg-success", "bg-success-subtle");}
-                if (row2.contains("bg-success")) {row2.replace("bg-success", "bg-success-subtle");}
-                if (row3.contains("bg-success")) {row3.replace("bg-success", "bg-success-subtle");}
-                if (row4.contains("bg-success")) {row4.replace("bg-success", "bg-success-subtle");}
-                if (row5.contains("bg-success")) {row5.replace("bg-success", "bg-success-subtle");}
-                if (row6.contains("bg-success")) {row6.replace("bg-success", "bg-success-subtle");}
-                if (row7.contains("bg-success")) {row7.replace("bg-success", "bg-success-subtle");}
-                if (row8.contains("bg-success")) {row8.replace("bg-success", "bg-success-subtle");}
+                for (const chartHeading of chartHeadings)
+                {
+                    chartHeading.replace("bg-success-subtle", "bg-success");
+                }
+                for (const chartRow of chartRows)
+                {
+                    chartRow.replace("bg-success", "bg-success-subtle");
+                }
             }
         }
         catch (e)
