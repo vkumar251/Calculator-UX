@@ -95,8 +95,12 @@ section#sidebar-pane {
 /* gradients */
 .gradient-sunrise {background: linear-gradient(to top, #7bcaff, #e8afff, #ffae00);}
 .gradient-sunset {background: linear-gradient(to top, #00365a, #4d0042, #ff9900);}
+.gradient-wood-light {background: linear-gradient(to top, #e69d36, #d6ae7b);}
+.gradient-wood-dark {background: linear-gradient(to top, #7c5b36, #7a4500);}
 .gradient-cherry-light {background: linear-gradient(to bottom, #daffb9, #ffa5c6);}
 .gradient-cherry-dark {background: linear-gradient(to bottom, #2c5e00, #5c0022);}
+.gradient-ocean-light {background: linear-gradient(to bottom, #74f3ff, #d085ff);}
+.gradient-ocean-dark {background: linear-gradient(to bottom, #007a85, #471069);}
 
 /* text shadow */
 .text-shadow-black {text-shadow: 5px 5px 5px #000000;}
@@ -144,6 +148,19 @@ section#sidebar-pane {
 .f-50 {font-size: 50px;}
 .f-75 {font-size: 75px;}
 .h-70 {height: 70px;}
+.w-45 {width: 45%;}
+.b-2 {border: 2px solid black;}
+.bl-2 {border-left: 2px solid black;}
+.br-2 {border-right: 2px solid black;}
+.bt-2 {border-top: 2px solid black;}
+.bb-2 {border-bottom: 2px solid black;}
+
+/* custom cards (without Bootstrap) */
+.shapes-card-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+.shapes-card-buttons button {width: 45%;}
 
 /* VIEWPORTS */
 @media screen and (max-width: 575px) /* x-small */
@@ -160,6 +177,17 @@ section#sidebar-pane {
     main #arithmetics-grid #subtract-card,
     main #arithmetics-grid #multiply-card,
     main #arithmetics-grid #divide-card {margin: 20px 0;}
+
+    main #shapes-2d-grid #square-card,
+    main #shapes-2d-grid #rectangle-card,
+    main #shapes-2d-grid #circle-card {margin: 20px 0;}
+    main #shapes-2d-grid .empty-space {display: none;}
+
+    main #shapes-3d-grid #cube-card,
+    main #shapes-3d-grid #cuboid-card,
+    main #shapes-3d-grid #cylinder-card,
+    main #shapes-3d-grid #sphere-card {margin: 20px 0;}
+    main #shapes-3d-grid .empty-space {display: none;}
 }
 
 @media screen and (min-width: 576px) /* small */
@@ -175,6 +203,19 @@ section#sidebar-pane {
     main #arithmetics-grid #subtract-card,
     main #arithmetics-grid #multiply-card,
     main #arithmetics-grid #divide-card {margin: 20px 0;}
+
+    main #shapes-2d-grid #square-card,
+    main #shapes-2d-grid #rectangle-card,
+    main #shapes-2d-grid #circle-card {margin: 20px 0;}
+    main #shapes-2d-grid .empty-space {display: none;}
+
+    main #shapes-3d-grid #cube-card,
+    main #shapes-3d-grid #cuboid-card,
+    main #shapes-3d-grid #cylinder-card,
+    main #shapes-3d-grid #sphere-card {margin: 20px 0;}
+    main #shapes-3d-grid .empty-space {display: none;}
+
+    main #bmi-grid #calculate-bmi {width: 50%; margin: auto;}
 }
 
 @media screen and (min-width: 768px) /* medium */
@@ -190,6 +231,19 @@ section#sidebar-pane {
     main #arithmetics-grid #subtract-card,
     main #arithmetics-grid #multiply-card,
     main #arithmetics-grid #divide-card {margin: 20px 0;}
+
+    main #shapes-2d-grid #square-card,
+    main #shapes-2d-grid #rectangle-card,
+    main #shapes-2d-grid #circle-card {margin: 20px 0;}
+    main #shapes-2d-grid .empty-space {display: none;}
+
+    main #shapes-3d-grid #cube-card,
+    main #shapes-3d-grid #cuboid-card,
+    main #shapes-3d-grid #cylinder-card,
+    main #shapes-3d-grid #sphere-card {margin: 20px 0;}
+    main #shapes-3d-grid .empty-space {display: none;}
+
+    main #bmi-grid #calculate-bmi {width: 30%; margin: auto;}
 }
 
 @media screen and (min-width: 992px) /* large */
@@ -243,14 +297,59 @@ section#sidebar-pane {
     main #arithmetics-grid #subtract-card,
     main #arithmetics-grid #multiply-card,
     main #arithmetics-grid #divide-card {margin: 0;}
+
+    /* 2d shapes grid */
+    main #shapes-2d-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        justify-items: center;
+    }
+    main #shapes-2d-grid .card {
+        width: 100%;
+        max-width: 600px;
+        min-height: 300px;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+    main #shapes-2d-grid .card-body {flex: 1;}
+    main #shapes-2d-grid {align-items: stretch;}
+
+    main #shapes-2d-grid #square-card,
+    main #shapes-2d-grid #rectangle-card,
+    main #shapes-2d-grid #circle-card {margin: 0;}
+    main #shapes-2d-grid .empty-space {display: inline-block; visibility: hidden;}
+
+    /* 3d shapes grid */
+    main #shapes-3d-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        justify-items: center;
+    }
+    main #shapes-3d-grid .card {
+        width: 100%;
+        max-width: 600px;
+        min-height: 300px;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+    }
+    main #shapes-3d-grid .card-body {flex: 1;}
+    main #shapes-3d-grid {align-items: stretch;}
+
+    main #shapes-3d-grid #cube-card,
+    main #shapes-3d-grid #cuboid-card,
+    main #shapes-3d-grid #cylinder-card,
+    main #shapes-3d-grid #sphere-card {margin: 0;}
+    main #shapes-3d-grid .empty-space {display: inline-block; visibility: hidden;}
 }
 
 @media screen and (min-width: 1200px) /* x-large */
 {
-
 }
 
 @media screen and (min-width: 1400px) /* xx-large */
 {
-    
 }

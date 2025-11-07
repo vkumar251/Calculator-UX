@@ -2,6 +2,9 @@
 import {toggleDarkMode} from './access.js';
 import {toggleLightMode} from './access.js';
 import {toggleThemes} from './access.js';
+import {switch2D} from './themes_2.js';
+import {switch3D} from './themes_2.js';
+import {switchBMI} from './themes_2.js';
 
 window.onload = function()
 {
@@ -9,6 +12,9 @@ window.onload = function()
     window.toggleDarkMode = toggleDarkMode;
     window.toggleLightMode = toggleLightMode;
     window.toggleThemes = toggleThemes;
+    window.switch2D = switch2D;
+    window.switch3D = switch3D;
+    window.switchBMI = switchBMI;
 }
 export function checkThemes()
 {
@@ -16,6 +22,11 @@ export function checkThemes()
     switchMenuCards();
     switchHeadings();
     switchArithmetics();
+
+    // execute external functions
+    switch2D(); 
+    switch3D();
+    switchBMI();
 }
 
 // Homepage banner
@@ -189,6 +200,9 @@ function switchMenuCards()
 function switchHeadings()
 {
     const arithmeticsH = document.querySelector("#arithmetics-heading");
+    const shapes2D = document.querySelector("#shapes-2d-heading");
+    const shapes3D = document.querySelector("#shapes-3d-heading");
+    const bmi = document.querySelector("#bmi-heading");
 
     // arithmetics
     if (document.body.contains(arithmeticsH))
@@ -203,6 +217,57 @@ function switchHeadings()
         {
             arithmeticsH.classList.replace("gradient-cherry-dark", "gradient-cherry-light");
             title.classList.replace("text-yellow", "text-orange");
+        }
+    }
+
+    // 2d shapes
+    if (document.body.contains(shapes2D))
+    {
+        const title = shapes2D.querySelector("h2");
+
+        if (window.darkMode)
+        {
+            shapes2D.classList.replace("gradient-ocean-light", "gradient-ocean-dark");
+            title.classList.replace("text-green-dark", "text-green-light");
+        }
+        else
+        {
+            shapes2D.classList.replace("gradient-ocean-dark", "gradient-ocean-light");
+            title.classList.replace("text-green-light", "text-green-dark");
+        }
+    }
+
+    // 3d shapes
+    if (document.body.contains(shapes3D))
+    {
+        const title = shapes3D.querySelector("h2");
+
+        if (window.darkMode)
+        {
+            shapes3D.classList.replace("gradient-ocean-light", "gradient-ocean-dark");
+            title.classList.replace("text-green-dark", "text-green-light");
+        }
+        else
+        {
+            shapes3D.classList.replace("gradient-ocean-dark", "gradient-ocean-light");
+            title.classList.replace("text-green-light", "text-green-dark");
+        }
+    }
+
+    // bmi
+    if (document.body.contains(bmi))
+    {
+        const title = bmi.querySelector("h2");
+
+        if (window.darkMode)
+        {
+            bmi.classList.replace("gradient-wood-light", "gradient-wood-dark");
+            title.classList.replace("text-red-dark", "text-red-light");
+        }
+        else
+        {
+            bmi.classList.replace("gradient-wood-dark", "gradient-wood-light");
+            title.classList.replace("text-red-light", "text-red-dark");
         }
     }
 }
@@ -227,7 +292,26 @@ function switchArithmetics()
         {
             if (darkMode === true)
             {
-                style.textContent = `input {color: white;} ::placeholder {color: #c5c5c5;}`;
+                style.textContent = 
+                `
+                .nav-items a,
+                .nav-items-footer a {color: #212529;}
+                .nav-button, .nav-button-access {color: #212529;}
+
+                .dropdown-menu .dropdown-item:hover,
+                .dropdown-menu .dropdown-item:focus {background-color: #ff9393ff;}
+
+                .nav-items-container div a,
+                .nav-items-container .nav-items-footer a {color: #f8f9fa;}
+
+                .nav-items-container div:hover,
+                .nav-items-container div a:focus,
+                .nav-items-container button:hover,
+                .nav-items-container button:focus,
+                .nav-items-container .nav-items-footer a:hover,
+                .nav-items-container .nav-items-footer a:focus {color: grey !important;}
+                
+                input {color: white;} ::placeholder {color: #c5c5c5;}`;
             }
             else
             {

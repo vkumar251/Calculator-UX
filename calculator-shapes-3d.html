@@ -9,6 +9,15 @@
         <link rel="stylesheet" href="css/animations.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <style id="placeholders-3d">
+            input {color: black;} ::placeholder {color: #444444;}
+            input[type="checkbox"] 
+            {
+                transform: scale(1.5);
+                accent-color: #680088;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body class="sansation-regular">
         <!-- navigation -->
@@ -66,7 +75,88 @@
         
         <!-- main content -->
         <main id="main" class="bg-light text-dark">
-            Text
+            <section id="shapes-3d-heading" class="gradient-ocean-light py-4 mb-4">
+                <h2 class="text-center row text-uppercase justify-content-center display-6 fw-bold mp-reset text-green-dark">3D Shapes Calculator</h2>
+                <h3 class="text-center row justify-content-center mp-reset pt-2">Calculate the volume of 3D shapes.</h3>
+            </section>
+            <section id="shapes-3d-grid" class="container">
+                <!-- cube -->
+                <div id="cube-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Cube</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="cube-length" type="number" placeholder="Length" class="input-box-light bg-light w-100">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100">
+                        <div class="d-flex align-items-center ms-1">
+                            <input id="cube-rounded" name="cube-rounded" type="checkbox" value="cube-rounded" class="me-2">
+                            <label for="cube-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <button id="cube-calculate-vol" class="btn btn-info" onClick="calcCubeVol()">Calculate Volume</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="cube-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- cuboid -->
+                <div id="cuboid-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Cuboid</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="cuboid-length" type="number" placeholder="Length" class="input-box-light bg-light w-100">
+                        <input id="cuboid-width" type="number" placeholder="Width" class="input-box-light bg-light w-100">
+                        <input id="cuboid-height" type="number" placeholder="Height" class="input-box-light bg-light w-100">
+                        <div class="d-flex align-items-center ms-1">
+                            <input id="cuboid-rounded" name="cuboid-rounded" type="checkbox" value="cuboid-rounded" class="me-2">
+                            <label for="cuboid-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <button id="cuboid-calculate-vol" class="btn btn-info" onClick="calcCuboidVol()">Calculate Volume</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="cuboid-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- cylinder -->
+                <div id="cylinder-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Cylinder</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="cylinder-radius" type="number" placeholder="Radius" class="input-box-light bg-light w-100">
+                        <input id="cylinder-height" type="number" placeholder="Height" class="input-box-light bg-light w-100">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100">
+                        <div class="d-flex align-items-center ms-1">
+                            <input id="cylinder-rounded" name="cylinder-rounded" type="checkbox" value="cylinder-rounded" class="me-2">
+                            <label for="cylinder-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <button id="cylinder-calculate-vol" class="btn btn-info" onClick="calcCylinderVol()">Calculate Volume</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="cylinder-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- sphere -->
+                <div id="sphere-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Sphere</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="sphere-radius" type="number" placeholder="Radius" class="input-box-light bg-light w-100">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100">
+                        <div class="d-flex align-items-center ms-1">
+                            <input id="sphere-rounded" name="sphere-rounded" type="checkbox" value="sphere-rounded" class="me-2">
+                            <label for="sphere-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <button id="sphere-calculate-vol" class="btn btn-info" onClick="calcSphereVol()">Calculate Volume</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="sphere-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- footer -->
@@ -81,8 +171,10 @@
         
         <!-- import scripts -->
         <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+        <script src="js/calculator.js"></script>
         <script src="js/queries.js"></script>
         <script type="module" src="js/access.js"></script>
         <script type="module" src="js/themes.js"></script>
+        <script type="module" src="js/themes_2.js"></script>
     </body>
 </html>

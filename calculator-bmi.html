@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Body Mass Index | Calculator-UX</title>
+        <title>BMI | Calculator-UX</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css">
         <link rel="stylesheet" href="css/animations.css">
@@ -66,7 +66,78 @@
         
         <!-- main content -->
         <main id="main" class="bg-light text-dark">
-            Text
+            <section id="bmi-heading" class="gradient-wood-light py-4 mb-4">
+                <h2 class="text-center row text-uppercase justify-content-center display-6 fw-bold mp-reset text-red-dark">BMI Calculator</h2>
+                <h3 class="text-center row justify-content-center mp-reset pt-2">Calculate your Body Mass Index and ideal range.</h3>
+            </section>
+            <section id="bmi-grid" class="container">
+                <!-- calculator -->
+                <div id="bmi-calculator" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-red-light fw-bold text-uppercase">Calculator</h3>
+                    </div> 
+                    <div class="card-body fs-3 bg-dark-subtle text-dark d-grid gap-3">
+                        <input id="bmi-weight" type="number" placeholder="Weight (kg)" class="input-box-light bg-light">
+                        <input id="bmi-height" type="number" placeholder="Height (cm)" class="input-box-light bg-light">
+                        <button id="calculate-bmi" class="btn btn-info" onClick="calculateBMI()">Calculate BMI</button>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="bmi-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- information -->
+                <div id="bmi-info" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-red-light fw-bold text-uppercase">Information</h3>
+                    </div>
+                    <div class="card-body text-center fs-4 bg-dark-subtle text-dark d-grid gap-3">
+                        <div>
+                            <h2 class="text-decoration-underline">Disclaimer</h2>
+                            <p>
+                                This calculator uses the following formula to calculate BMI:
+                            </p>
+                            <div class="container my-4">
+                                <p id="formula-div" class="col-sm-12 col-md-8 col-lg-6 m-auto bg-primary-subtle rounded-5 p-1">
+                                    Weight (kg) <i class="fa-solid fa-divide" style="font-size: 20px;"></i> Height (m)²
+                                </p>
+                            </div>
+                            <p>Height (cm) is automatically converted to (m).</p>
+                        </div>
+                        <div>
+                            <h2 class="text-decoration-underline">Chart</h2>
+                            <p>
+                                Results displayed will follow the below criteria:
+                            </p>
+                            <div class="container d-flex text-light">
+                                <div id="bmi-heading-1" class="col-6 p-2 bl-2 bt-2 bb-2 bg-success">
+                                    <p class="fw-bold mp-reset">BMI</p>
+                                </div>
+                                <div id="bmi-heading-2" class="col-6 p-2 b-2 bg-success">
+                                    <p class="fw-bold mp-reset">Category</p>
+                                </div>
+                            </div>
+                            <div class="text-dark">
+                                <div class="container d-flex text-start">
+                                    <div id="bmi-row-1" class="col-6 p-2 bl-2 bb-2 bg-success-subtle fw-bold"><i class="fa-solid fa-less-than-equal"></i> 18.5</div>
+                                    <div id="bmi-row-2" class="col-6 p-2 bl-2 bb-2 br-2 bg-success-subtle">Underweight</div>
+                                </div>
+                                <div class="container d-flex text-start">
+                                    <div id="bmi-row-3" class="col-6 p-2 bl-2 bb-2 bg-success-subtle fw-bold">18.6 <i class="fa-solid fa-minus"></i> 24.9</div>
+                                    <div id="bmi-row-4" class="col-6 p-2 bl-2 bb-2 br-2 bg-success-subtle">Healthy Weight</div>
+                                </div>
+                                <div class="container d-flex text-start">
+                                    <div id="bmi-row-5" class="col-6 p-2 bl-2 bb-2 bg-success-subtle fw-bold">25.0 <i class="fa-solid fa-minus"></i> 29.9</div>
+                                    <div id="bmi-row-6" class="col-6 p-2 bl-2 bb-2 br-2 bg-success-subtle">Overweight</div>
+                                </div>
+                                <div class="container d-flex text-start">
+                                    <div id="bmi-row-7" class="col-6 p-2 bl-2 bb-2 bg-success-subtle fw-bold"><i class="fa-solid fa-greater-than-equal"></i> 30.0</div>
+                                    <div id="bmi-row-8" class="col-6 p-2 bl-2 bb-2 br-2 bg-success-subtle">Obese</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- footer -->
@@ -81,8 +152,10 @@
         
         <!-- import scripts -->
         <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+        <script src="js/calculator.js"></script>
         <script src="js/queries.js"></script>
         <script type="module" src="js/access.js"></script>
         <script type="module" src="js/themes.js"></script>
+        <script type="module" src="js/themes_2.js"></script>
     </body>
 </html>

@@ -9,6 +9,15 @@
         <link rel="stylesheet" href="css/animations.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <style id="placeholders-2d">
+            input {color: black;} ::placeholder {color: #444444;}
+            input[type="checkbox"] 
+            {
+                transform: scale(1.5);
+                accent-color: #680088;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body class="sansation-regular">
         <!-- navigation -->
@@ -66,7 +75,77 @@
         
         <!-- main content -->
         <main id="main" class="bg-light text-dark">
-            Text
+            <section id="shapes-2d-heading" class="gradient-ocean-light py-4 mb-4">
+                <h2 class="text-center row text-uppercase justify-content-center display-6 fw-bold mp-reset text-green-dark">2D Shapes Calculator</h2>
+                <h3 class="text-center row justify-content-center mp-reset pt-2">Calculate the perimeter, area and circumference of 2D shapes.</h3>
+            </section>
+            <section id="shapes-2d-grid" class="container">
+                <!-- square -->
+                <div id="square-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Square</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark gap-3">
+                        <input id="square-length" type="number" placeholder="Length" class="input-box-light bg-light w-100 mb-3">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100 mb-3">
+                        <div class="d-flex align-items-center ms-1 mb-3">
+                            <input id="square-rounded" name="square-rounded" type="checkbox" value="square-rounded" class="me-2">
+                            <label for="square-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <div class="shapes-card-buttons">
+                            <button id="square-calculate-perim" class="btn btn-info" onClick="calcSquarePerim()">Calculate Perimeter</button>
+                            <button id="square-calculate-area" class="btn btn-info" onClick="calcSquareArea()">Calculate Area</button>
+                        </div>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="square-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- rectangle -->
+                <div id="rectangle-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Rectangle</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark gap-3">
+                        <input id="rectangle-height" type="number" placeholder="Height" class="input-box-light bg-light w-100 mb-3">
+                        <input id="rectangle-width" type="number" placeholder="Width" class="input-box-light bg-light w-100 mb-3">
+                        <div class="d-flex align-items-center ms-1 mb-3">
+                            <input id="rectangle-rounded" name="rectangle-rounded" type="checkbox" value="rectangle-rounded" class="me-2">
+                            <label for="rectangle-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <div class="shapes-card-buttons">
+                            <button id="rectangle-calculate-perim" class="btn btn-info" onClick="calcRectanglePerim()">Calculate Perimeter</button>
+                            <button id="rectangle-calculate-area" class="btn btn-info" onClick="calcRectangleArea()">Calculate Area</button>
+                        </div>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="rectangle-results" class="mp-reset text-orange"></p>
+                    </div>
+                </div>
+                <!-- circle -->
+                 <div id="circle-card" class="card w-100 bg-light my-4">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title mp-reset text-center text-green-light fw-bold text-uppercase">Circle</h3>
+                    </div>
+                    <div class="card-body fs-3 bg-dark-subtle text-dark gap-3">
+                        <input id="circle-diameter" type="number" placeholder="Diameter" class="input-box-light bg-light w-100 mb-3">
+                        <input name="empty-space" type="number" placeholder="(empty space)" class="empty-space input-box-light bg-light w-100 mb-3">
+                        <div class="d-flex align-items-center ms-1 mb-3">
+                            <input id="circle-rounded" name="circle-rounded" type="checkbox" value="circle-rounded" class="me-2">
+                            <label for="circle-rounded" class="fs-5 mb-0">Round to 2 decimal places</label>
+                        </div>
+                        <div class="shapes-card-buttons">
+                            <button id="circle-calculate-circum" class="btn btn-info" onClick="calcCircleCircum()">Calculate Circumference</button>
+                            <button id="circle-calculate-area" class="btn btn-info" onClick="calcCircleArea()">Calculate Area</button>
+                        </div>
+                    </div>
+                    <div class="card-footer fs-3 text-dark d-flex align-items-center h-70 bg-pink-light">
+                        <p id="circle-results" class="mp-reset text-orange"></p>
+                    </div>
+                 </div>
+            </section>
+            <!-- extra space (to be deleted) -->
+            <section style="height: 20px;"></section>
         </main>
 
         <!-- footer -->
@@ -81,8 +160,10 @@
         
         <!-- import scripts -->
         <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+        <script src="js/calculator.js"></script>
         <script src="js/queries.js"></script>
         <script type="module" src="js/access.js"></script>
         <script type="module" src="js/themes.js"></script>
+        <script type="module" src="js/themes_2.js"></script>
     </body>
 </html>
