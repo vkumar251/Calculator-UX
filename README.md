@@ -1,8 +1,8 @@
 Setup Instructions
 --------------------------------------------
-1. Download and unzip this repository.
+1. Download this entire repository.
 2. Extract (unzip) the zip file.
-3. Open file, **index.html**
+3. Open file, **index.html**.
 4. Run the project through a local server if dark mode does not work. (see reference 3 below for more details)
 
 References
